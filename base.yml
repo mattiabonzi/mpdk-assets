@@ -8,17 +8,16 @@ services:
           MPDK_PHP_VERSION: ${MOODLE_DOCKER_PHP_VERSION}
       depends_on:
       - db
-      image: moodle-php-apache-python-node:${MOODLE_DOCKER_PHP_VERSION}_${MOODLE_DOCKER_VERSION}
+      image: moodle-php-apache-dev:${MOODLE_DOCKER_PHP_VERSION}_${MOODLE_DOCKER_VERSION}
       environment:
-        environment:
         MOODLE_DOCKER_DBNAME: moodle
         MOODLE_DOCKER_DBUSER: moodle
         MOODLE_DOCKER_DBPASS: "moodle"
         MOODLE_DOCKER_BROWSER: firefox
         MOODLE_DOCKER_WEB_HOST: "${MOODLE_DOCKER_WEB_HOST}"
       volumes:
-        - "${IROOT}/config.php:/var/www/html/config.php"
-        - "${MPDK_ROOT}/plugin:/opt/mpdk/myplugins"
+        - "${MPDK_DATADIR}/moodle-docker/config.docker-template.php:/var/www/html/config.php"
+        - "${MPDK_BASEDIR}/plugin:/opt/mpdk/myplugins"
         - "${ASSETDIR}/web/apache2_faildumps.conf:/etc/apache2/conf-enabled/apache2_faildumps.conf"
   db:
     environment:
@@ -30,5 +29,5 @@ services:
       - "${ASSETDIR}/exttests/apache2.conf:/etc/apache2/sites-enabled/000-default.conf"
   selenium:
     image: "selenium/standalone-firefox${MOODLE_DOCKER_SELENIUM_SUFFIX:-}:${MOODLE_DOCKER_BROWSER_TAG}"
-    volumes:
-      - "${MOODLE_DOCKER_WWWROOT}:/var/www/html:ro"
+#    volumes:
+#      - "${MOODLE_DOCKER_WWWROOT}:/var/www/html:ro"

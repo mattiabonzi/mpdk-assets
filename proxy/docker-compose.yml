@@ -1,0 +1,29 @@
+version: "2"
+services:
+  dns:
+    image: defreitas/dns-proxy-server
+    hostname: dns.lcl
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${MPDK_DATADIR}/mpdk-docker/proxy/dns_config.json:/app/conf/config.json
+    networks:
+      - lcl
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+    restart: always
+  proxy:
+    image: nginx:latest
+    networks:
+          - lcl
+    ports:
+      - 80:80/tcp
+    volumes: 
+      - ${MPDK_CONFIGDIR}/proxy:/etc/nginx/conf.d
+      - ${MPDK_DATADIR}/mpdk-docker/proxy/proxy_params.conf:/etc/nginx/proxy_params.conf
+    
+networks:
+  lcl:
+    name: lcl
+    driver: bridge
+

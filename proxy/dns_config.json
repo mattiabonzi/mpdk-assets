@@ -1,0 +1,28 @@
+{
+	"version": 2,
+	"remoteDnsServers": [],
+	"envs": [
+		{
+			"name": "",
+			"hostnames": [
+				{
+				"id": 1, 
+				"hostname": ".lcl",
+				"ip": "127.0.0.1",
+				"ttl": 255
+				}
+      		]
+		}
+	],
+	"activeEnv": "",
+	"webServerPort": 80,
+	"dnsServerPort": 0,
+	"defaultDns": null,
+	"logLevel": "",
+	"logFile": "",
+	"registerContainerNames": false,
+	"hostMachineHostname": "",
+	"domain": "docker",
+	"dpsNetwork": false,
+	"dpsNetworkAutoConnect": false
+}

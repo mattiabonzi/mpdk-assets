@@ -1,0 +1,11 @@
+version: "2"
+services:
+  db:
+    networks:
+      - localdev
+  webserver:
+    networks:
+      - localdev
+networks:
+  localdev:
+    external: true
