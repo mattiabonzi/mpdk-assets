@@ -6,12 +6,21 @@
 			"name": "",
 			"hostnames": [
 				{
-				"id": 1, 
-				"hostname": ".lcl",
-				"ip": "127.0.0.1",
-				"ttl": 255
+					"id": 1,
+					"hostname": ".mpdk",
+					"ip": "127.0.0.1",
+					"target": "",
+					"ttl": 255,
+					"type": "A"
+				},
+				{
+					"id": 2,
+					"hostname": ".moodle.lcl",
+					"ip": "127.0.0.1",
+					"ttl": 60,
+					"type": "A"
 				}
-      		]
+			]
 		}
 	],
 	"activeEnv": "",
