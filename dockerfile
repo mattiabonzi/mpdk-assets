@@ -10,7 +10,7 @@ RUN apt install -y wget unzip zip git
 RUN apt install -y python3 || apt install -y python3
 #Install NVM and latest LTS Node
 RUN curl -o - https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-RUN source ~/.nvm/nvm.sh && nvm install --lts && nvm install 16.19.0 && nvm use --lts
+RUN source ~/.nvm/nvm.sh
 #Install composer
 RUN cd /opt && wget -O composer-setup.php https://getcomposer.org/installer && php composer-setup.php && rm composer-setup.php
 RUN mv /opt/composer.phar /usr/local/bin/composer
@@ -24,6 +24,8 @@ RUN pecl install xdebug
 RUN wget --quiet -O moodle.zip $MOODLE_LINK
 RUN unzip moodle.zip -d moodle && rm -fr moodle.zip html && mv moodle/*/ html && rm -fr moodle
 WORKDIR /var/www/html
+RUN npm install
+RUN nvm install
 #Download (and not install) utils plugins
 RUN mkdir -p /opt/mpdk/assets /opt/mpdk/myplugins
 RUN git clone --quiet --depth 1 https://github.com/moodlehq/moodle-local_codechecker.git "/opt/mpdk/assets/codechecker"
