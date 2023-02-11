@@ -1,0 +1,38 @@
+{
+	"version": 2,
+	"remoteDnsServers": [],
+	"envs": [
+		{
+			"name": "",
+			"hostnames": [
+				{
+					"id": 1,
+					"hostname": ".mpdk",
+					"ip": "127.0.0.1",
+					"target": "",
+					"ttl": 255,
+					"type": "A"
+				},
+				{
+					"id": 1675523072512342000,
+					"hostname": ".moodle.lcl",
+					"ip": "127.0.0.1",
+					"target": "acme.com",
+					"ttl": 60,
+					"type": "A"
+				}
+			]
+		}
+	],
+	"activeEnv": "",
+	"webServerPort": 80,
+	"dnsServerPort": 0,
+	"defaultDns": null,
+	"logLevel": "",
+	"logFile": "",
+	"registerContainerNames": false,
+	"hostMachineHostname": "",
+	"domain": "docker",
+	"dpsNetwork": false,
+	"dpsNetworkAutoConnect": false
+}

@@ -15,6 +15,7 @@ services:
         MOODLE_DOCKER_DBPASS: "moodle"
         MOODLE_DOCKER_BROWSER: firefox
         MOODLE_DOCKER_WEB_HOST: "${MOODLE_DOCKER_WEB_HOST}"
+        COMPOSE_PROJECT_NAME: "${COMPOSE_PROJECT_NAME}"
       volumes:
         - "${MPDK_DATADIR}/moodle-docker/config.docker-template.php:/var/www/html/config.php"
         - "${MPDK_BASEDIR}/plugin:/opt/mpdk/myplugins"
